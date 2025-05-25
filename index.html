@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bamboo Garden: Your natural escape for events, relaxation, and memorable gatherings in a serene outdoor setting.">
+    <meta name="keywords" content="bamboo garden, outdoor events, nyama choma, garden restaurant, outdoor dining, event venue">
     <title>Bamboo Garden - Your Natural Escape</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -62,262 +64,328 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        #mobile-menu:not(.hidden) {
+            transform: translateX(0);
+        }
+        /* Focus Styles */
+        a:focus, button:focus {
+            outline: 2px solid #718c67;
+            outline-offset: 2px;
+        }
+        /* Hero Text Shadow */
+        .hero-subtitle {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        /* Service Card Hover Effect */
+        .service-card {
+            transition: transform 0.3s ease-in-out;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
     </style>
 </head>
 <body class="bg-bamboo-50">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <a href="#" class="text-2xl font-semibold text-bamboo-700">Bamboo Garden</a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="text-bamboo-600 hover:text-bamboo-800 transition">About</a>
-                    <a href="#services" class="text-bamboo-600 hover:text-bamboo-800 transition">Services</a>
-                    <a href="#gallery" class="text-bamboo-600 hover:text-bamboo-800 transition">Gallery</a>
-                    <a href="#booking" class="text-bamboo-600 hover:text-bamboo-800 transition">Book Now</a>
-                    <a href="#contact" class="text-bamboo-600 hover:text-bamboo-800 transition">Contact</a>
+    <header>
+        <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50" role="navigation" aria-label="Main Menu">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex justify-between items-center">
+                    <a href="#" class="text-2xl font-semibold text-bamboo-700 focus:outline-none focus:ring-2 focus:ring-bamboo-500 rounded-lg px-2" aria-label="Bamboo Garden Home">Bamboo Garden</a>
+                    <div class="hidden md:flex space-x-8" role="menubar">
+                        <a href="#about" class="text-bamboo-600 hover:text-bamboo-800 transition focus:outline-none focus:ring-2 focus:ring-bamboo-500 rounded-lg px-2" role="menuitem">About</a>
+                        <a href="#services" class="text-bamboo-600 hover:text-bamboo-800 transition focus:outline-none focus:ring-2 focus:ring-bamboo-500 rounded-lg px-2" role="menuitem">Services</a>
+                        <a href="#gallery" class="text-bamboo-600 hover:text-bamboo-800 transition focus:outline-none focus:ring-2 focus:ring-bamboo-500 rounded-lg px-2" role="menuitem">Gallery</a>
+                        <a href="#booking" class="text-bamboo-600 hover:text-bamboo-800 transition focus:outline-none focus:ring-2 focus:ring-bamboo-500 rounded-lg px-2" role="menuitem">Book Now</a>
+                        <a href="#contact" class="text-bamboo-600 hover:text-bamboo-800 transition focus:outline-none focus:ring-2 focus:ring-bamboo-500 rounded-lg px-2" role="menuitem">Contact</a>
+                    </div>
+                    <button id="mobile-menu-button" class="md:hidden text-bamboo-700 focus:outline-none focus:ring-2 focus:ring-bamboo-500 rounded-lg p-2" aria-label="Toggle mobile menu" aria-expanded="false">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
                 </div>
-                <button id="mobile-menu-button" class="md:hidden text-bamboo-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="md:hidden hidden">
-                <div class="pt-4 pb-3 space-y-3">
-                    <a href="#about" class="block text-bamboo-600 hover:text-bamboo-800 transition py-2">About</a>
-                    <a href="#services" class="block text-bamboo-600 hover:text-bamboo-800 transition py-2">Services</a>
-                    <a href="#gallery" class="block text-bamboo-600 hover:text-bamboo-800 transition py-2">Gallery</a>
-                    <a href="#booking" class="block text-bamboo-600 hover:text-bamboo-800 transition py-2">Book Now</a>
-                    <a href="#contact" class="block text-bamboo-600 hover:text-bamboo-800 transition py-2">Contact</a>
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="md:hidden hidden fixed top-16 left-0 w-full bg-white shadow-lg" role="menu" aria-label="Mobile menu">
+                    <div class="pt-4 pb-3 space-y-3">
+                        <a href="#about" class="block text-bamboo-600 hover:text-bamboo-800 transition py-2 focus:outline-none focus:ring-2 focus:ring-bamboo-500 rounded-lg px-2" role="menuitem">About</a>
+                        <a href="#services" class="block text-bamboo-600 hover:text-bamboo-800 transition py-2 focus:outline-none focus:ring-2 focus:ring-bamboo-500 rounded-lg px-2" role="menuitem">Services</a>
+                        <a href="#gallery" class="block text-bamboo-600 hover:text-bamboo-800 transition py-2 focus:outline-none focus:ring-2 focus:ring-bamboo-500 rounded-lg px-2" role="menuitem">Gallery</a>
+                        <a href="#booking" class="block text-bamboo-600 hover:text-bamboo-800 transition py-2 focus:outline-none focus:ring-2 focus:ring-bamboo-500 rounded-lg px-2" role="menuitem">Book Now</a>
+                        <a href="#contact" class="block text-bamboo-600 hover:text-bamboo-800 transition py-2 focus:outline-none focus:ring-2 focus:ring-bamboo-500 rounded-lg px-2" role="menuitem">Contact</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center bg-bamboo-100">
-        <div class="absolute inset-0">
-            <img src="images/couplesoutdoor.jpg" alt="Bamboo Garden Outdoor Setting" class="w-full h-full object-cover">
-        </div>
-        <div class="absolute inset-0 bg-black/30"></div>
-        <div class="container mx-auto px-4 text-center relative z-10">
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 fade-in">
-                Your Perfect Spot to Relax, Celebrate, or Connect
-            </h1>
-            <div class="mb-6">
-                <span class="block italic text-lg md:text-2xl text-amber-300 font-medium fade-in" style="text-shadow:0 2px 4px rgba(0,0,0,0.3)">Rustic &middot; Serene &amp; Tranquil</span>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center bg-bamboo-100" role="banner" aria-label="Hero">
+            <div class="absolute inset-0">
+                <img src="images/couplesoutdoor.jpg" alt="Serene outdoor dining area at Bamboo Garden with comfortable seating and natural surroundings" class="w-full h-full object-cover" loading="eager">
             </div>
-            <p class="text-xl md:text-2xl text-white mb-8 fade-in">
-                From meetings to birthday parties — Bamboo Garden is your natural escape.
-            </p>
-            <a href="#booking" class="inline-block bg-bamboo-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-bamboo-700 transition fade-in">
-                Book a Day
-            </a>
-        </div>
-    </section>
+            <div class="absolute inset-0 bg-black/30"></div>
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 fade-in">
+                    Your Perfect Spot to Relax, Celebrate, or Connect
+                </h1>
+                <div class="mb-6">
+                    <span class="block italic text-lg md:text-2xl text-amber-300 font-medium fade-in hero-subtitle">Rustic &middot; Serene &amp; Tranquil</span>
+                </div>
+                <p class="text-xl md:text-2xl text-white mb-8 fade-in">
+                    From meetings to birthday parties — Bamboo Garden is your natural escape.
+                </p>
+                <a href="#booking" class="inline-block bg-bamboo-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-bamboo-700 transition fade-in">
+                    Book a Day
+                </a>
+            </div>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="fade-in">
-                    <h2 class="text-3xl md:text-4xl font-bold text-bamboo-800 mb-6">Welcome to Bamboo Garden</h2>
-                    <p class="text-bamboo-600 leading-relaxed">
-                        Bamboo Garden is your all-in-one destination for meaningful meetups, birthday dinners, chillouts with friends, and memorable parties. Enjoy mouthwatering nyama choma, light meals, and refreshing drinks in a serene outdoor setting designed to help you unwind and connect.
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white" role="region" aria-labelledby="about-heading">
+            <div class="container mx-auto px-4" id="about-heading">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <h2 class="text-3xl md:text-4xl font-bold text-bamboo-800 mb-6">Welcome to Bamboo Garden</h2>
+                        <p class="text-bamboo-600 leading-relaxed">
+                            Bamboo Garden is your all-in-one destination for meaningful meetups, birthday dinners, chillouts with friends, and memorable parties. Enjoy mouthwatering nyama choma, light meals, and refreshing drinks in a serene outdoor setting designed to help you unwind and connect.
+                        </p>
+                    </div>
+                    <div class="fade-in">
+                        <img src="images/outdoor table arrangement.jpg" alt="Elegant outdoor table arrangement at Bamboo Garden with natural bamboo elements" class="w-full h-full object-cover rounded-lg shadow-lg" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-bamboo-50" role="region" aria-labelledby="services-heading">
+            <div class="container mx-auto px-4" id="services-heading">
+                <h2 class="text-3xl md:text-4xl font-bold text-bamboo-800 text-center mb-12">What We Offer</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Cards -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition fade-in group relative overflow-hidden service-card">
+                        <div class="w-12 h-12 bg-bamboo-100 rounded-full flex items-center justify-center mb-4 relative z-10">
+                            <svg class="w-6 h-6 text-bamboo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-bamboo-800 mb-2 relative z-10 group-hover:text-white transition-colors duration-300">Meetings & Conferences</h3>
+                        <p class="text-bamboo-600 relative z-10 group-hover:text-white transition-colors duration-300">Perfect space for productive team meetings and corporate retreats.</p>
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/co workers outdoor.jpg" alt="Business professionals having a productive meeting in Bamboo Garden's outdoor space" class="w-full h-full object-cover" loading="lazy">
+                            <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition fade-in group relative overflow-hidden service-card">
+                        <div class="w-12 h-12 bg-bamboo-100 rounded-full flex items-center justify-center mb-4 relative z-10">
+                            <svg class="w-6 h-6 text-bamboo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-bamboo-800 mb-2 relative z-10 group-hover:text-white transition-colors duration-300">Dinner & Birthday Parties</h3>
+                        <p class="text-bamboo-600 relative z-10 group-hover:text-white transition-colors duration-300">Celebrate special occasions in our beautiful outdoor setting.</p>
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/friends outdoor.jpg" alt="Group of friends celebrating and dining in Bamboo Garden's beautiful outdoor setting" class="w-full h-full object-cover" loading="lazy">
+                            <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition fade-in group relative overflow-hidden service-card">
+                        <div class="w-12 h-12 bg-bamboo-100 rounded-full flex items-center justify-center mb-4 relative z-10">
+                            <svg class="w-6 h-6 text-bamboo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-bamboo-800 mb-2 relative z-10 group-hover:text-white transition-colors duration-300">Friends & Family Hangouts</h3>
+                        <p class="text-bamboo-600 relative z-10 group-hover:text-white transition-colors duration-300">Create lasting memories with your loved ones in nature.</p>
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/family day out.jpg" alt="Happy family enjoying quality time together in Bamboo Garden's outdoor space" class="w-full h-full object-cover" loading="lazy">
+                            <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition fade-in group relative overflow-hidden service-card">
+                        <div class="w-12 h-12 bg-bamboo-100 rounded-full flex items-center justify-center mb-4 relative z-10">
+                            <svg class="w-6 h-6 text-bamboo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-bamboo-800 mb-2 relative z-10 group-hover:text-white transition-colors duration-300">Nyama Choma & Snacks</h3>
+                        <p class="text-bamboo-600 relative z-10 group-hover:text-white transition-colors duration-300">Delicious grilled meats and light bites to satisfy your cravings.</p>
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/grill meat .jpg" alt="Delicious grilled meat being prepared at Bamboo Garden's outdoor kitchen" class="w-full h-full object-cover" loading="lazy">
+                            <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition fade-in group relative overflow-hidden service-card">
+                        <div class="w-12 h-12 bg-bamboo-100 rounded-full flex items-center justify-center mb-4 relative z-10">
+                            <svg class="w-6 h-6 text-bamboo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-bamboo-800 mb-2 relative z-10 group-hover:text-white transition-colors duration-300">Beverages & Bar Options</h3>
+                        <p class="text-bamboo-600 relative z-10 group-hover:text-white transition-colors duration-300">Refreshing drinks and cocktails to complement your experience.</p>
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/kitchen chef.jpg" alt="Professional chef preparing fresh meals in Bamboo Garden's kitchen" class="w-full h-full object-cover" loading="lazy">
+                            <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition fade-in group relative overflow-hidden service-card">
+                        <div class="w-12 h-12 bg-bamboo-100 rounded-full flex items-center justify-center mb-4 relative z-10">
+                            <svg class="w-6 h-6 text-bamboo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-bamboo-800 mb-2 relative z-10 group-hover:text-white transition-colors duration-300">Scenic Outdoor Vibes</h3>
+                        <p class="text-bamboo-600 relative z-10 group-hover:text-white transition-colors duration-300">Immerse yourself in nature's beauty and tranquility.</p>
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <img src="images/outdoor table arrangement.jpg" alt="Elegant outdoor table arrangement at Bamboo Garden with natural bamboo elements" class="w-full h-full object-cover" loading="lazy">
+                            <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 bg-white" role="region" aria-labelledby="gallery-heading">
+            <div class="container mx-auto px-4" id="gallery-heading">
+                <h2 class="text-3xl md:text-4xl font-bold text-bamboo-800 text-center mb-12">Our Gallery</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="swiper gallery-swiper rounded-lg shadow-lg">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide aspect-w-4 aspect-h-3 relative">
+                                <img src="images/family day out.jpg" alt="Happy family enjoying quality time together in Bamboo Garden's outdoor space" class="w-full h-full object-cover rounded-lg" loading="lazy">
+                                <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4 rounded-b-lg">
+                                    <h3 class="text-lg font-semibold">Family Day Out</h3>
+                                    <p class="text-sm">Create lasting memories with your loved ones</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide aspect-w-4 aspect-h-3 relative">
+                                <img src="images/friends outdoor.jpg" alt="Group of friends celebrating and dining in Bamboo Garden's beautiful outdoor setting" class="w-full h-full object-cover rounded-lg" loading="lazy">
+                                <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4 rounded-b-lg">
+                                    <h3 class="text-lg font-semibold">Friends Gathering</h3>
+                                    <p class="text-sm">Perfect for celebrations and casual meetups</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide aspect-w-4 aspect-h-3 relative">
+                                <img src="images/grill meat .jpg" alt="Delicious grilled meat being prepared at Bamboo Garden's outdoor kitchen" class="w-full h-full object-cover rounded-lg" loading="lazy">
+                                <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4 rounded-b-lg">
+                                    <h3 class="text-lg font-semibold">Nyama Choma</h3>
+                                    <p class="text-sm">Freshly grilled meats prepared to perfection</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide aspect-w-4 aspect-h-3 relative">
+                                <img src="images/kitchen chef.jpg" alt="Professional chef preparing fresh meals in Bamboo Garden's kitchen" class="w-full h-full object-cover rounded-lg" loading="lazy">
+                                <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4 rounded-b-lg">
+                                    <h3 class="text-lg font-semibold">Professional Kitchen</h3>
+                                    <p class="text-sm">Expert chefs preparing delicious meals</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide aspect-w-4 aspect-h-3 relative">
+                                <img src="images/co workers outdoor.jpg" alt="Business professionals having a productive meeting in Bamboo Garden's outdoor space" class="w-full h-full object-cover rounded-lg" loading="lazy">
+                                <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4 rounded-b-lg">
+                                    <h3 class="text-lg font-semibold">Business Meetings</h3>
+                                    <p class="text-sm">Productive meetings in a serene environment</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide aspect-w-4 aspect-h-3 relative">
+                                <img src="images/kitchen chef 2.jpg" alt="Chef preparing specialty dishes in Bamboo Garden's modern kitchen" class="w-full h-full object-cover rounded-lg" loading="lazy">
+                                <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4 rounded-b-lg">
+                                    <h3 class="text-lg font-semibold">Specialty Dishes</h3>
+                                    <p class="text-sm">Unique culinary creations by our chefs</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next text-bamboo-700"></div>
+                        <div class="swiper-button-prev text-bamboo-700"></div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="booking" class="py-20 bg-bamboo-50" role="region" aria-labelledby="booking-heading">
+            <div class="container mx-auto px-4" id="booking-heading">
+                <div class="max-w-2xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-bamboo-800 text-center mb-12">Book Your Day</h2>
+                    <form class="bg-white p-8 rounded-lg shadow-sm fade-in" id="bookingForm" novalidate>
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-bamboo-700 mb-2" for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-2 border border-bamboo-200 rounded-lg focus:outline-none focus:border-bamboo-500"
+                                    pattern="[A-Za-z\s]+" minlength="2"
+                                    aria-describedby="name-error">
+                                <div id="name-error" class="text-red-600 text-sm mt-1 hidden">Please enter a valid name (letters and spaces only)</div>
+                            </div>
+                            <div>
+                                <label class="block text-bamboo-700 mb-2" for="date">Date</label>
+                                <input type="date" id="date" name="date" required
+                                    class="w-full px-4 py-2 border border-bamboo-200 rounded-lg focus:outline-none focus:border-bamboo-500"
+                                    min="<?php echo date('Y-m-d'); ?>"
+                                    aria-describedby="date-error">
+                                <div id="date-error" class="text-red-600 text-sm mt-1 hidden">Please select a valid future date</div>
+                            </div>
+                            <div>
+                                <label class="block text-bamboo-700 mb-2" for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required
+                                    class="w-full px-4 py-2 border border-bamboo-200 rounded-lg focus:outline-none focus:border-bamboo-500"
+                                    pattern="[0-9]{10}"
+                                    placeholder="07XX XXX XXX"
+                                    aria-describedby="phone-error">
+                                <div id="phone-error" class="text-red-600 text-sm mt-1 hidden">Please enter a valid 10-digit phone number</div>
+                            </div>
+                            <div>
+                                <label class="block text-bamboo-700 mb-2" for="event">Type of Event</label>
+                                <select id="event" name="event" required
+                                    class="w-full px-4 py-2 border border-bamboo-200 rounded-lg focus:outline-none focus:border-bamboo-500"
+                                    aria-describedby="event-error">
+                                    <option value="">Select an event type</option>
+                                    <option value="meeting">Meeting</option>
+                                    <option value="birthday">Birthday Party</option>
+                                    <option value="dinner">Dinner Party</option>
+                                    <option value="chillout">Chillout</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div id="event-error" class="text-red-600 text-sm mt-1 hidden">Please select an event type</div>
+                            </div>
+                            <button type="submit" class="w-full bg-bamboo-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-bamboo-700 transition focus:outline-none focus:ring-2 focus:ring-bamboo-500">
+                                Submit Booking
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-12 bg-white" role="region" aria-labelledby="contact-heading">
+            <div class="container mx-auto px-4" id="contact-heading">
+                <div class="max-w-xl mx-auto text-center fade-in">
+                    <h2 class="text-2xl md:text-3xl font-bold text-bamboo-800 mb-4">Contact</h2>
+                    <p class="text-bamboo-700 text-lg mb-6">Call or WhatsApp:
+                        <a href="tel:0791423165" class="text-green-700 underline mx-2">0791 423 165</a> /
+                        <a href="tel:0798087577" class="text-green-700 underline mx-2">0798 087 577</a>
                     </p>
                 </div>
-                <div class="fade-in">
-                    <img src="images/outdoor table arrangement.jpg" alt="Outdoor Table Arrangement" class="w-full h-full object-cover rounded-lg shadow-lg">
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-bamboo-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-bamboo-800 text-center mb-12">What We Offer</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Cards -->
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition fade-in group relative overflow-hidden">
-                    <div class="w-12 h-12 bg-bamboo-100 rounded-full flex items-center justify-center mb-4 relative z-10">
-                        <svg class="w-6 h-6 text-bamboo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-bamboo-800 mb-2 relative z-10">Meetings & Conferences</h3>
-                    <p class="text-bamboo-600 relative z-10">Perfect space for productive team meetings and corporate retreats.</p>
-                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <img src="images/co workers outdoor.jpg" alt="Meetings & Conferences" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition fade-in group relative overflow-hidden">
-                    <div class="w-12 h-12 bg-bamboo-100 rounded-full flex items-center justify-center mb-4 relative z-10">
-                        <svg class="w-6 h-6 text-bamboo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-bamboo-800 mb-2 relative z-10">Dinner & Birthday Parties</h3>
-                    <p class="text-bamboo-600 relative z-10">Celebrate special occasions in our beautiful outdoor setting.</p>
-                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <img src="images/friends outdoor.jpg" alt="Dinner & Birthday Parties" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition fade-in group relative overflow-hidden">
-                    <div class="w-12 h-12 bg-bamboo-100 rounded-full flex items-center justify-center mb-4 relative z-10">
-                        <svg class="w-6 h-6 text-bamboo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-bamboo-800 mb-2 relative z-10">Friends & Family Hangouts</h3>
-                    <p class="text-bamboo-600 relative z-10">Create lasting memories with your loved ones in nature.</p>
-                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <img src="images/family day out.jpg" alt="Friends & Family Hangouts" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition fade-in group relative overflow-hidden">
-                    <div class="w-12 h-12 bg-bamboo-100 rounded-full flex items-center justify-center mb-4 relative z-10">
-                        <svg class="w-6 h-6 text-bamboo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-bamboo-800 mb-2 relative z-10">Nyama Choma & Snacks</h3>
-                    <p class="text-bamboo-600 relative z-10">Delicious grilled meats and light bites to satisfy your cravings.</p>
-                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <img src="images/grill meat .jpg" alt="Nyama Choma & Snacks" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition fade-in group relative overflow-hidden">
-                    <div class="w-12 h-12 bg-bamboo-100 rounded-full flex items-center justify-center mb-4 relative z-10">
-                        <svg class="w-6 h-6 text-bamboo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-bamboo-800 mb-2 relative z-10">Beverages & Bar Options</h3>
-                    <p class="text-bamboo-600 relative z-10">Refreshing drinks and cocktails to complement your experience.</p>
-                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <img src="images/kitchen chef.jpg" alt="Beverages & Bar Options" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition fade-in group relative overflow-hidden">
-                    <div class="w-12 h-12 bg-bamboo-100 rounded-full flex items-center justify-center mb-4 relative z-10">
-                        <svg class="w-6 h-6 text-bamboo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-bamboo-800 mb-2 relative z-10">Scenic Outdoor Vibes</h3>
-                    <p class="text-bamboo-600 relative z-10">Immerse yourself in nature's beauty and tranquility.</p>
-                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <img src="images/outdoor table arrangement.jpg" alt="Scenic Outdoor Vibes" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-bamboo-800 text-center mb-12">Our Gallery</h2>
-            <div class="max-w-3xl mx-auto">
-                <div class="swiper gallery-swiper rounded-lg shadow-lg">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide aspect-w-4 aspect-h-3">
-                            <img src="images/family day out.jpg" alt="Family Day Out" class="w-full h-full object-cover rounded-lg">
-                        </div>
-                        <div class="swiper-slide aspect-w-4 aspect-h-3">
-                            <img src="images/friends outdoor.jpg" alt="Friends Gathering" class="w-full h-full object-cover rounded-lg">
-                        </div>
-                        <div class="swiper-slide aspect-w-4 aspect-h-3">
-                            <img src="images/grill meat .jpg" alt="Grilled Meat" class="w-full h-full object-cover rounded-lg">
-                        </div>
-                        <div class="swiper-slide aspect-w-4 aspect-h-3">
-                            <img src="images/kitchen chef.jpg" alt="Kitchen Chef" class="w-full h-full object-cover rounded-lg">
-                        </div>
-                        <div class="swiper-slide aspect-w-4 aspect-h-3">
-                            <img src="images/co workers outdoor.jpg" alt="Co-workers Meeting" class="w-full h-full object-cover rounded-lg">
-                        </div>
-                        <div class="swiper-slide aspect-w-4 aspect-h-3">
-                            <img src="images/kitchen chef 2.jpg" alt="Kitchen Chef 2" class="w-full h-full object-cover rounded-lg">
-                        </div>
-                    </div>
-                    <!-- Add Arrows -->
-                    <div class="swiper-button-next text-bamboo-700"></div>
-                    <div class="swiper-button-prev text-bamboo-700"></div>
-                    <!-- Add Pagination -->
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Booking Section -->
-    <section id="booking" class="py-20 bg-bamboo-50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-2xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-bamboo-800 text-center mb-12">Book Your Day</h2>
-                <form class="bg-white p-8 rounded-lg shadow-sm fade-in">
-                    <div class="space-y-6">
-                        <div>
-                            <label class="block text-bamboo-700 mb-2" for="name">Full Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 border border-bamboo-200 rounded-lg focus:outline-none focus:border-bamboo-500">
-                        </div>
-                        <div>
-                            <label class="block text-bamboo-700 mb-2" for="date">Date</label>
-                            <input type="date" id="date" class="w-full px-4 py-2 border border-bamboo-200 rounded-lg focus:outline-none focus:border-bamboo-500">
-                        </div>
-                        <div>
-                            <label class="block text-bamboo-700 mb-2" for="phone">Phone Number</label>
-                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-bamboo-200 rounded-lg focus:outline-none focus:border-bamboo-500">
-                        </div>
-                        <div>
-                            <label class="block text-bamboo-700 mb-2" for="event">Type of Event</label>
-                            <select id="event" class="w-full px-4 py-2 border border-bamboo-200 rounded-lg focus:outline-none focus:border-bamboo-500">
-                                <option value="">Select an event type</option>
-                                <option value="meeting">Meeting</option>
-                                <option value="birthday">Birthday Party</option>
-                                <option value="dinner">Dinner Party</option>
-                                <option value="chillout">Chillout</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="w-full bg-bamboo-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-bamboo-700 transition">
-                            Submit Booking
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-12 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-xl mx-auto text-center fade-in">
-                <h2 class="text-2xl md:text-3xl font-bold text-bamboo-800 mb-4">Contact</h2>
-                <p class="text-bamboo-700 text-lg mb-6">Call or WhatsApp:
-                    <a href="tel:0791423165" class="text-green-700 underline mx-2">0791 423 165</a> /
-                    <a href="tel:0798087577" class="text-green-700 underline mx-2">0798 087 577</a>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-bamboo-800 text-white py-8">
+    <footer class="bg-bamboo-800 text-white py-8" role="contentinfo">
         <div class="container mx-auto px-4 text-center">
             <div class="mb-2">
                 <a href="tel:0791423165" class="text-green-400 underline mx-2">0791 423 165</a> /
@@ -330,7 +398,14 @@
         </div>
     </footer>
 
-    <!-- Animation Script -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+            class="fixed bottom-8 right-8 bg-bamboo-600 text-white p-3 rounded-full shadow-lg hover:bg-bamboo-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-bamboo-500"
+            aria-label="Scroll to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const fadeElements = document.querySelectorAll('.fade-in');
@@ -356,12 +431,16 @@
 
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 
+                    mobileMenuButton.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'
+                );
             });
 
             // Close mobile menu when clicking a link
             mobileMenuLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
                 });
             });
 
@@ -369,6 +448,7 @@
             document.addEventListener('click', (e) => {
                 if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
                     mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
                 }
             });
         });
@@ -397,6 +477,59 @@
                     },
                 },
             });
+        });
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+
+            // Name validation
+            const name = document.getElementById('name');
+            const nameError = document.getElementById('name-error');
+            if (!name.value.match(/^[A-Za-z\s]+$/)) {
+                nameError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                nameError.classList.add('hidden');
+            }
+
+            // Date validation
+            const date = document.getElementById('date');
+            const dateError = document.getElementById('date-error');
+            const selectedDate = new Date(date.value);
+            const today = new Date();
+            if (selectedDate < today) {
+                dateError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                dateError.classList.add('hidden');
+            }
+
+            // Phone validation
+            const phone = document.getElementById('phone');
+            const phoneError = document.getElementById('phone-error');
+            if (!phone.value.match(/^[0-9]{10}$/)) {
+                phoneError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                phoneError.classList.add('hidden');
+            }
+
+            // Event type validation
+            const event = document.getElementById('event');
+            const eventError = document.getElementById('event-error');
+            if (!event.value) {
+                eventError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                eventError.classList.add('hidden');
+            }
+
+            if (isValid) {
+                // Here you would typically send the form data to your server
+                alert('Thank you for your booking! We will contact you shortly.');
+                this.reset();
+            }
         });
     </script>
 </body>
